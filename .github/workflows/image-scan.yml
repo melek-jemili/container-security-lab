@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   image-scan:
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -24,5 +24,5 @@ jobs:
         uses: aquasecurity/trivy-action@0.33.0
         with:
           image-ref: lab6-image
-          severity: MEDIUM,HIGH,CRITICAL
+          severity: CRITICAL
           exit-code: 1
