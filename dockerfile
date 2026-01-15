@@ -1,2 +1,2 @@
-FROM alpine:3.19
+FROM ubuntu:22.04
 CMD ["bash"]
