@@ -1,0 +1,28 @@
+name: Container Image Vulnerability Scan
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  image-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build container image
+        run: |
+          docker build -t lab6-image .
+
+      - name: Scan image with Trivy
+        uses: aquasecurity/trivy-action@0.33.0
+        with:
+          image-ref: lab6-image
+          severity: HIGH,CRITICAL
+          exit-code: 1
