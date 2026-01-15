@@ -24,5 +24,5 @@ jobs:
         uses: aquasecurity/trivy-action@0.33.0
         with:
           image-ref: lab6-image
-          severity: HIGH,CRITICAL
+          severity: MEDIUM,HIGH,CRITICAL
           exit-code: 1
